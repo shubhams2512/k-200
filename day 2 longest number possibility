@@ -1,0 +1,45 @@
+/*Samwell laid out N bowls in a straight line and put few marbles in each bowls such that:
+ A bowl cannot have more than 9 marbles.
+ A bowl can have 0 marbles.
+Now Samwell’s friend adds one more marble to last bowl. After this addition, all the bowls must be aligned with the rules mentioned above. Adding a marble follows the same rule of addition with carry over.
+You are given with initial list marbles in the bowls. Find the position of bowl which was last modified (assuming index starts from 1). If a situation where you have to add one more bowl, output is 0.
+Input1: Number of bowls i.e. N
+Input2: Number of marbles in each bowl from 1 to N. (i.e. arr[N])
+Output: Index of the last modified bowl i.e. position of the last bowl which was last modified.
+Example-1
+Input1: 2
+Input2: (2, 3)
+Output: 2 (First we will check the last bowl .It has less than 9 marbles, so we can add marbles to last bowl and now the status of the bowl is 2 and 4. As we have added marbles to the second bowl, output will be 2. )
+K-200
+Day-2 Problem
+Example-2
+Input1: 5
+Input2: (1, 2, 9, 9, 9)
+Output: 2
+Example-3
+Input1: 2
+Input2: (9, 9)
+Output: 0 (Since if we add 1 to the last bowl, it becomes 9 10, carry forward it becomes 10 0, again a problem, so 0 0 making nothing getting modified at the end. Here we need one more bowl)*/
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i,j,k=0,arr[100000],n;
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    
+    for(i=n-1;i>=0;i--)
+    {
+        if(arr[i]<9)
+        {
+            k=i+1;
+            break;
+        }
+    }
+    cout<<k;
+}
