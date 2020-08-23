@@ -1,0 +1,38 @@
+#include<bits/stdc++.h>
+#include<iostream>
+using namespace std;
+int main()
+{
+    int i,j,k,n;
+   
+    cin>>n;
+    
+    for(i=0;i<=n;i++)
+    {
+         int flag=0,new1=0,prev1=0;
+         k=i;
+        while(k>10)
+        {
+                    prev1=((k)%(10));
+
+            new1=(k)/(10);
+            new1=((new1)%(10));
+            if(abs(new1-prev1)==1)
+            {
+                flag+=0;
+               
+                k=k/10;
+            }else
+            {
+                flag+=1;k=k/10;
+                
+            }if(flag>0){break;}
+        }//cout<<"flag va="<<flag<<" ";
+        if(flag!=1)
+        {
+            cout<<i<<" ";
+            
+        }
+    }
+}
+    
