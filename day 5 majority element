@@ -1,0 +1,43 @@
+/*
+2. Majority Element [Amazon-CSA profile(2017)/Mettl]
+Given an array of n elements and prints the majority element (if it exists), otherwise prints -1. The majority element is the element that appears more than ⌊ n/2 ⌋ times (and hence there is at most one such element).
+Input: An array of n elements
+Output: Majority element or -1
+Example-1:
+Input: [3, 2, 3]
+Output: 3
+Example-2:
+Input: [2, 2, 1, 1, 1, 2, 2]
+Output: 2
+Example-3:
+Input: 1,2,1,2
+Output: -1 (for None)
+Time Complexity: O (n) required
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+
+{
+ int i,j,k,n,arr[1000],hash[1000];
+    cin>>n;
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    for(i=0;i<n;i++)
+    {
+        
+        hash[arr[i]]++;
+    }
+    int takrar=-1;
+    for(i=0;i<10;i++)
+    {
+        if(hash[i]>(n/2) && hash[i]!=0)
+        {
+            takrar=i;
+        }
+      
+    }cout<<takrar;
+}
