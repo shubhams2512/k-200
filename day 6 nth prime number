@@ -1,0 +1,39 @@
+#include<bits/stdc++.h>
+#include<time.h>
+using namespace std;
+bool prime(int x);
+
+int main()
+{
+    int i,j,k,q=0,arr[1000000],n;
+    for(i=2;i<1000000;i++)
+    {
+        k=i;
+        if(prime(k))
+        {
+            arr[q]=i;q++;
+        }
+        
+    }
+    cin>>n;
+    cout<<arr[n-1];
+    int ticks=clock();
+    cout<<(float)ticks/(CLOCKS_PER_SEC);
+    
+    
+}
+bool prime(int x)
+{
+    int p,flag=0;
+    for(p=2;p<=sqrt(x);p++)
+    {
+        if((x%p)==0)
+        {
+            flag=1;
+            break;
+        }
+    }
+    if(flag==1)return false;
+    else 
+    return true;
+}
