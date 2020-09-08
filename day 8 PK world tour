@@ -1,0 +1,65 @@
+/*
+
+Amir Khan sets out in a world tour to N countries. He has planned an itinerary for the same. He strictly follows itinerary and visit the countries in same order as per the input. There are three modes of transport: Plane, Ship and Helicopter. He never prefers to travel in by the same mode of transport consecutively as it is boring and monotonous. But the cost ‘C’ varies for each journey depending on the places and mode of transport.
+Minimize the total world tour travel cost satisfying the condition.
+Input:
+The first line has N number of country.
+The next N lines contain 3 numbers separated by space that represents the cost for the three modes of transport- plane, ship and helicopter.
+Output:
+Print the minimum total world tour travel cost.
+Constraints:
+1<=N<=25
+1<=cost of travel <=1000
+Example:
+Input:
+3
+100 70 50
+80 40 30
+200 150 80
+Output: 170
+*/
+
+
+//PK WORLD TOUR
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i,j,n,cmincost;
+    cin>>n;
+    int arr[n][n];
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+          cin>>arr[i][j];  
+        }
+    }
+    int k=-1,mode;
+    int totalcost=0;
+     for(i=0;i<n;i++)
+    {
+        cmincost=1000;
+        for(j=0;j<n;j++)
+        {
+           if(j!=k && arr[i][j]<cmincost)
+           {
+               cmincost=arr[i][j];
+               mode=j;
+           }
+            
+            
+            
+        }
+        totalcost+=cmincost;
+        k=mode;
+        
+    }
+    cout<<totalcost;
+}
+
+    
+    
+    
+    
+
