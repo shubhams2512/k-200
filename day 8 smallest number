@@ -1,0 +1,39 @@
+/*
+Given a number n, find the smallest number p such that if we multiply all digits of p, we get n. The result p should have minimum two digits.
+Example-1:
+Input: n = 36
+Output: p = 49 // Note that 4*9 = 36 and 49 is the smallest such number
+Example-2:
+Input: n = 100
+Output: p = 455 // Note that 4*5*5 = 100 and 455 is the smallest such number
+Example-3:
+Input: n = 13
+Output: Not Possible
+*/
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int i,n,k,number,rem,ans=-1;
+    cin>>n;
+    
+    for(i=10;i<1000;i++)
+    {
+        number=1;
+        k=i;
+        while(k!=0)
+        {
+            rem=k%10;
+           number=number*rem;
+           k=k/10;
+        }
+        if(n==number)
+        {
+            ans=i;
+            cout<<ans;
+            break;
+        }
+    }if(ans==-1){cout<<"Not possible";}
+}
+
