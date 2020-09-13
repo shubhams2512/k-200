@@ -1,0 +1,55 @@
+/*
+Write a function sortStringByValue() which takes in a list of strings and sort them according to the sum of the positional value of the alphabets where position of a is 1, b is 2, c is 3…..etc. till z=26. Alphabets are not ----- character other than alphabets (upper and lower case) should not be considered for positive value.
+Input Format: The first integer ‘n’ denotes the size of the array and the next n lines of input denote the n strings.
+Output: Print strings in sorted manner.
+Sample Input:
+3
+beast
+fox
+cat
+Sample Output:
+cat
+fox
+beast
+Explanation: beast= 2+5+1+19+20 =47, fox= 6+15+24=45, cat= 3+1+20=24
+*/
+
+#include<bits/stdc++.h>
+#include<string.h>
+using namespace std;
+int main()
+{
+    int n,i,j,k,hash[100000],max=INT_MIN,q=0,hash2[10000];
+    cin>>n;
+string str[100];
+ for(i=0;i<n;i++)
+ {
+    cin>>str[i];
+ }
+ for(i=0;i<n;i++)
+ {k=0;
+ for(j=0;j<str[i].length();j++)
+ {
+    k+=str[i][j]-96; 
+ }
+ hash[q]=k;q++;
+ }
+ for(i=0;i<n;i++){hash2[i]=hash[i];}
+ sort(hash2,hash2+n);
+ for(i=0;i<n;i++)
+ {
+     for(j=0;j<n;j++)
+     {
+         
+         if(hash2[i]==hash[j])
+         {
+             cout<<str[j]<<" ";
+             
+         }
+     }
+ }
+}
+
+
+
+ 
